@@ -13,16 +13,21 @@ tree <- read.tree("RAxML_bipartitions.alignment_pi_m4_nogap")
 rooted_tree <- root(tree, outgroup="Bur_isabellinus_A190_Lago405", resolve.root = TRUE, edgelabel = TRUE)
 rooted_tree$edge.length[which(is.na(rooted_tree$edge.length))] <- 0
 
-t <- ggtree(rooted_tree, layout="rectangular", size=1) + 
-  xlim(0, 1) + #how much space on left and right
-  annotate("point", x=0, y=14, shape=21, fill="darkgray", color="black", size=3) + 
-  annotate("text", x=0.04, y=14, label = "> 75% node support", hjust = "left", size=2) + 
-  geom_nodepoint(aes(subset = !is.na(as.numeric(label)) & as.numeric(label) > 0.75), size=3, 
-                 shape=21, fill="darkgray", color="black")
-t2 <- t %<+% data2 + geom_tippoint(shape=19, size=2.5) + 
+t <- ggtree(rooted_tree, layout = "rectangular", size = 1) +
+  hexpand(1) +
+  geom_tree() +
+  geom_text2(
+    aes(label = label, subset = !isTip ),
+    vjust = -0.5,
+    hjust = 1.3,
+    size = 2.5
+  ) +
+  theme_tree()
+
+t2 <- t %<+% data2 +
   theme(legend.position = "none") + 
   geom_tiplab(aes(label=NewLab), align=FALSE, hjust=-.02, parse=T, 
-              family="Helvetica", size = 2) 
+              family="Helvetica", size = 2.5) 
 ggsave(plot = t2, filename = "RAxML_bipartitions.alignment_pi_m4_nogap.png", 
        width = 3, height = 4.5, units = "in", limitsize = FALSE)
 
@@ -34,13 +39,18 @@ rooted_tree$edge.length[which(is.na(rooted_tree$edge.length))] <- 0
 
 t3 <- ggtree(rooted_tree, layout="rectangular", size=1) +
   hexpand(1) +
-  annotate("point", x=0, y=14, shape=21, fill="darkgray", color="black", size=3) + 
-  annotate("text", x=30, y=14, label = "> 75% node support", hjust = "left", size=2) + 
-  geom_nodepoint(size=3, shape=21, fill="darkgray", color="black")
-t4 <- t3 %<+% data2 + geom_tippoint(shape=19, size=2.5) + 
+  geom_tree() +
+  geom_text2(
+    aes(label = 100, subset = !isTip ),
+    vjust = -0.5,
+    hjust = 1.3,
+    size = 2.5
+  ) +
+  theme_tree()
+t4 <- t3 %<+% data2 +
   theme(legend.position = "none") + 
   geom_tiplab(aes(label=NewLab), align=FALSE, hjust=-.02, parse=T, 
-              family="Helvetica", size = 2) 
+              family="Helvetica", size = 2.5) 
 ggsave(plot = t4, filename = "Burm_alignment_pi_m4_nogap.phylip-relaxed.svdq.png", 
        width = 3, height = 4.5, units = "in", limitsize = FALSE)
 
