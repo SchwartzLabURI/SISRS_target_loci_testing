@@ -13,6 +13,10 @@ data2 <- data %>% mutate(NewLab = ifelse(Species== "sp.", glue("italic({Genus})~
 col <- c("Burmeistera" = "lightseagreen", "Centropogon" = "plum3", "Lysipomia" = "darkgoldenrod1", "Siphocampylus" = "royalblue3")
 
 tree <- read.tree("SCG_SpeciesTree_supercontigs_astral3.tre")
+
+t <- ggtree(tree, layout="rectangular", size=1, branch.length="none") + geom_text(aes(label=node)) + geom_tiplab(align=TRUE, hjust=-.15)
+t
+
 rooted_tree <- root(tree, node=124, resolve.root = TRUE, edgelabel = TRUE)
 rooted_tree$edge.length[which(is.na(rooted_tree$edge.length))] <- 0
 
