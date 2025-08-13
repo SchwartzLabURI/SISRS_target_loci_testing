@@ -5,7 +5,7 @@ library(dplyr)
 library(glue)
 library(gridExtra)
 
-data <- read.table("tree_metadata.txt", header=T)
+data <- read.table("tree_metadata2.txt", header=T)
 data2 <- data %>% mutate(NewLab = ifelse(Species== "sp.", glue("italic({Genus})~{Species}~{Sample}~{Info}"), 
                                          ifelse(Info=="n.a.", glue("italic({Genus}~{Species})~{Sample}"), glue("italic({Genus}~{Species})~{Sample}~{Info}"))))
 
