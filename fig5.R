@@ -26,6 +26,8 @@ nodelabels(frame = "none") #determine root node
 rooted_tree <- root(tree, node=100, resolve.root = TRUE, edgelabel = TRUE)
 rooted_tree$edge.length[which(is.na(rooted_tree$edge.length))] <- 0
 
+rooted_tree$tip.label[ !(rooted_tree$tip.label %in% data2$Label) ] #check for species not in metadata
+
 t <- ggtree(rooted_tree, layout="rectangular", size=1) + #geom_treescale(x=0, y=78) + 
   #xlim(0, 11) + #how much space on left and right
   hexpand(.2) + #condense horizontally

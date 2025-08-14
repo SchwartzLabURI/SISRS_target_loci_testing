@@ -54,6 +54,7 @@ L._vitreola_A217_Antonelli6B	L.	vitreola	A217	Antonelli6B
 Lysipomia_sp_A362_Lago633	L.	sp.	A362	Lago633     
 Lysipomia_laciniata_A401_Lago780	L.	laciniata	A401	Lago780 
 Lysipomia_vitreola_A217_Antonellii6B	L.	vitreola	A217	Antonelli6B
+Lysipomia_vitreola_A217_Antonelli6B	L.	vitreola	A217	Antonelli6B
 Lysipomia_muscoides_A364_Lago781	L.	muscoides	A364	Lago781
 Siph_andinus_A16_Lago226	S.	andinus	A16	Lago226
 Siph_angustiflorus_A202_Lago417	S.	angustiflorus	A202	Lago417
@@ -64,8 +65,10 @@ Siph_clotho_A208_Lago367	S.	clotho	A208	Lago367
 Siph_columnae_A357_JAS4781	S.	columnae	A357	JAS4781
 Siph_correoides_A201_Lago413	S.	correoides	A201	Lago413
 Siph_corynellus_ARC6_Weigand5815	S.	corynellus	ARC6	Weigand5815
+Siph_corynellus_ARC6_weigand5815	S.	corynellus	ARC6	Weigand5815
 Siph_corynoides_A209_Lago350	S.	corynoides	A209	Lago350
 Siph_ecuadoriensis_ARC7_Clark1906	S.	ecuadoriensis	ARC7	Clark1906
+Siph_ecuadoriensis_ARC7_Clarck1906	S.	ecuadoriensis	ARC7	Clark1906
 Siph_elfriedii_A214_Lago387	S.	elfriedii	A214	Lago387
 Siph_jelskii_A215_Lago321	S.	jelskii	A215	Lago321
 Siph_krauseanus_A203_Lago418	S.	krauseanus	A203	Lago418
