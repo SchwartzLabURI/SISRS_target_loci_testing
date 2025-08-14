@@ -13,24 +13,30 @@ library(ggplot2)
 library(dplyr)
 library(glue)
 
-data <- read.table("tree_metadata.txt", header=T)
+data <- read.table("tree_metadata2.txt", header=T)
 data2 <- data %>% mutate(NewLab = ifelse(Species== "sp.", glue("italic({Genus})~{Species}~{Sample}~{Info}"), ifelse(Info=="n.a.", glue("italic({Genus}~{Species})~{Sample}"), glue("italic({Genus}~{Species})~{Sample}~{Info}"))))
 
-col <- c("Burmeistera" = "lightseagreen", "Centropogon" = "plum3", "Lysipomia" = "darkgoldenrod1", "Siphocampylus" = "royalblue3")
+#col <- c("Burmeistera" = "lightseagreen", "Centropogon" = "plum3", "Lysipomia" = "darkgoldenrod1", "Siphocampylus" = "royalblue3")
+col <- c("B." = "lightseagreen", "C." = "plum3", "L." = "darkgoldenrod1", "S." = "royalblue3")
 
+tree <- read.tree("SISRS_marker_Camp.tre") #/project/pi_rsschwartz_uri_edu/andromeda_transfer/rachel/Campanulaceae_markers/hybpiper_SISRSmarkers/SISRS_marker_Camp.tre
+plot(tree)
+nodelabels(frame = "none") #determine root node
 
-tree <- read.tree("/project/pi_rsschwartz_uri_edu/andromeda_transfer/rachel/Campanulaceae_markers/hybpiper_SISRSmarkers/SISRS_marker_Camp.tre")
-rooted_tree <- root(tree, outgroup="Lysipomia_vitreola_A217_Antonellii6B", resolve.root = TRUE, edgelabel = TRUE)
+rooted_tree <- root(tree, node=100, resolve.root = TRUE, edgelabel = TRUE)
 rooted_tree$edge.length[which(is.na(rooted_tree$edge.length))] <- 0
 
-
 t <- ggtree(rooted_tree, layout="rectangular", size=1) + #geom_treescale(x=0, y=78) + 
-  xlim(0, 11) + #how much space on left and right
+  #xlim(0, 11) + #how much space on left and right
+  hexpand(.2) + #condense horizontally
   annotate("point", x=0, y=75, shape=21, fill="darkgray", color="black", size=3) + 
   annotate("text", x=0.1, y=75, label = "> 75% node support", hjust = "left") + 
   geom_nodepoint(aes(subset = !is.na(as.numeric(label)) & as.numeric(label) > 0.75), size=3, shape=21, fill="darkgray", color="black")
-t2 <- t %<+% data2 + geom_tippoint(aes(color=factor(Genus)), shape=19, size=2.5) + theme(legend.position = "none") + 
-  geom_tiplab(aes(label=NewLab), align=FALSE, hjust=-.02, parse=T, family="Helvetica") + aes(color=factor(Genus)) + scale_color_manual(values = col, name="Genus", na.value="black")
+t2 <- t %<+% data2 + 
+  #geom_tippoint(aes(color=factor(Genus)), shape=19, size=2.5) + 
+  theme(legend.position = "none") + 
+  geom_tiplab(aes(label=NewLab), align=FALSE, hjust=-.02, parse=T, family="Helvetica", size=3) + 
+  aes(color=factor(Genus)) + scale_color_manual(values = col, name="Genus", na.value="black")
 
 
-ggsave(plot = t2, filename = "SISRS_marker_Camp_wastral.pdf", width = 26, height = 36, units = "cm", limitsize = FALSE)
+ggsave(plot = t2, filename = "SISRS_marker_Camp_wastral.png", width = 6.5, height = 9, units = "in", limitsize = FALSE)
