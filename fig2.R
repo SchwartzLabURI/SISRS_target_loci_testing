@@ -1,7 +1,6 @@
 library(phangorn)
 library(ggtree)
-library(ggplot2)
-library(dplyr)
+library(tidyverse)
 library(glue)
 library(gridExtra)
 
@@ -13,16 +12,36 @@ tree <- read.tree("RAxML_bipartitions.alignment_pi_m4_nogap")
 rooted_tree <- root(tree, outgroup="Bur_isabellinus_A190_Lago405", resolve.root = TRUE, edgelabel = TRUE)
 rooted_tree$edge.length[which(is.na(rooted_tree$edge.length))] <- 0
 
+plot(rooted_tree)
+nodelabels(frame = "none") #determine root node
+
+# Get tree data
+tree_data <- ggtree(rooted_tree)$data
+
+# Filter labels: internal nodes only, not root, not empty
+label_data <- tree_data %>%
+  filter(!isTip, label != "", label != "Root") %>%
+  mutate( hjust_val = case_when( # custom hjust
+    node == 15 ~ 1,  # node 15 shifted more right
+    node == 24 ~ 1,  
+    node == 25 ~  1.8,  # node shifted left
+    node == 18 ~  1.6,  # node shifted left
+    TRUE       ~ 1.2   # default for all others
+  ),
+  vjust_val = case_when( # custom vjust
+    node == 24 ~ 1.2,  # node 15 shifted down
+    TRUE       ~ -0.5   # default for all others
+  ))
+
 t <- ggtree(rooted_tree, layout = "rectangular", size = 1) +
   hexpand(1) +
   geom_tree() +
   geom_text2(
-    aes(label = label, subset = !isTip ),
-    vjust = -0.5,
-    hjust = 1.3,
-    size = 2.5
+    data = label_data,
+    aes(label = label, hjust = hjust_val, vjust = vjust_val),
+    size = 2.3
   ) +
-  theme_tree()
+  theme_tree() + coord_cartesian(clip = "off")
 
 t2 <- t %<+% data2 +
   theme(legend.position = "none") + 
@@ -37,11 +56,20 @@ tree <- read.nexus("Burm_alignment_pi_m4_nogap.phylip-relaxed.svdq.tre")
 rooted_tree <- root(tree, outgroup="Bur_isabellinus_A190_Lago405", resolve.root = TRUE, edgelabel = TRUE)
 rooted_tree$edge.length[which(is.na(rooted_tree$edge.length))] <- 0
 
+
+# Get tree data
+tree_data <- ggtree(rooted_tree)$data
+
+# Filter labels: internal nodes only, not root, not empty
+label_data <- tree_data %>%
+  filter(!isTip, label != "Root", x>0)
+
 t3 <- ggtree(rooted_tree, layout="rectangular", size=1) +
   hexpand(1) +
   geom_tree() +
   geom_text2(
-    aes(label = 100, subset = !isTip ),
+    data = label_data,
+    aes(label = branch.length),
     vjust = -0.5,
     hjust = 1.3,
     size = 2.5
