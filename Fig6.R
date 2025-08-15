@@ -24,7 +24,7 @@ rooted_tree$edge.length[which(is.na(rooted_tree$edge.length))] <- 0
 rooted_tree$tip.label[ !(rooted_tree$tip.label %in% data2$Label) ] #check for species not in metadata
 
 #pdf("SCG_SpeciesTree_supercontigs_astral3.pdf", width=15, height=15)
-t <- ggtree(rooted_tree, layout="rectangular", size=1) + geom_treescale(x=0, y=78) + xlim(0, 3) + 
+t <- ggtree(rooted_tree, layout="rectangular", size=1) + geom_treescale(x=0, y=78) + xlim(0, 3.5) + 
   annotate("point", x=0, y=75, shape=21, fill="darkgray", color="black", size=3) + 
   annotate("text", x=0.05, y=75, label = "> 75% node support", hjust = "left") + 
   geom_nodepoint(aes(subset = !is.na(as.numeric(label)) & as.numeric(label) > 0.75), size=3, shape=21, fill="darkgray", color="black")
