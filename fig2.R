@@ -46,7 +46,7 @@ t <- ggtree(rooted_tree, layout = "rectangular", size = 1) +
 t2 <- t %<+% data2 +
   theme(legend.position = "none") + 
   geom_tiplab(aes(label=NewLab), align=FALSE, hjust=-.02, parse=T, 
-              family="Helvetica", size = 2.5) 
+              family="Helvetica", size = 3.3) 
 ggsave(plot = t2, filename = "RAxML_bipartitions.alignment_pi_m4_nogap.png", 
        width = 3, height = 4.5, units = "in", limitsize = FALSE)
 
@@ -78,7 +78,7 @@ t3 <- ggtree(rooted_tree, layout="rectangular", size=1) +
 t4 <- t3 %<+% data2 +
   theme(legend.position = "none") + 
   geom_tiplab(aes(label=NewLab), align=FALSE, hjust=-.02, parse=T, 
-              family="Helvetica", size = 2.5) 
+              family="Helvetica", size = 3.3) 
 ggsave(plot = t4, filename = "Burm_alignment_pi_m4_nogap.phylip-relaxed.svdq.png", 
        width = 3, height = 4.5, units = "in", limitsize = FALSE)
 
