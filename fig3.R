@@ -6,8 +6,8 @@ library(glue)
 library(gridExtra)
 
 data <- read.table("tree_metadata2.txt", header=T)
-data2 <- data %>% mutate(NewLab = ifelse(Species== "sp.", glue("italic({Genus})~{Species}~{Sample}~{Info}"), 
-                                         ifelse(Info=="n.a.", glue("italic({Genus}~{Species})~{Sample}"), glue("italic({Genus}~{Species})~{Sample}~{Info}"))))
+data2 <- data %>% mutate(NewLab = ifelse(Species== "sp.", glue("italic({Genus})~{Species}~{Info}"), 
+                                         ifelse(Info=="n.a.", glue("italic({Genus}~{Species})~{Sample}"), glue("italic({Genus}~{Species})~{Info}"))))
 
 tree <- read.tree("SISRS_marker_Bur.tre")
 rooted_tree <- root(tree, outgroup="Bur_isabellinus_A190_Lago405", resolve.root = TRUE, edgelabel = TRUE)
@@ -41,7 +41,7 @@ t <- ggtree(rooted_tree, layout="rectangular", size=1) +
 t2 <- t %<+% data2 + 
   theme(legend.position = "none") + 
   geom_tiplab(aes(label=NewLab), align=FALSE, hjust=-.02, parse=T, 
-              family="Helvetica", size = 2) 
+              family="Helvetica", size = 3.1) 
 ggsave(plot = t2, filename = "SISRS_marker_Bur.tre.png", 
        width = 3, height = 4.5, units = "in", limitsize = FALSE)
 
@@ -80,7 +80,7 @@ t3 <- ggtree(rooted_tree, layout="rectangular", size=1) +
 t4 <- t3 %<+% data2 +
   theme(legend.position = "none") + 
   geom_tiplab(aes(label=NewLab), align=FALSE, hjust=-.02, parse=T, 
-              family="Helvetica", size = 2) 
+              family="Helvetica", size = 3.1) 
 ggsave(plot = t2, filename = "BurSCG_SpeciesTree_supercontigs_astral3.tre.png", 
        width = 3, height = 4.5, units = "in", limitsize = FALSE)
 
