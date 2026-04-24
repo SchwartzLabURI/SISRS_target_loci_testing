@@ -15,34 +15,33 @@ col <- c("B." = "lightseagreen", "C." = "plum3", "L." = "darkgoldenrod1", "S." =
 
 tree <- read.tree("SCG_SpeciesTree_supercontigs_astral3.tre")
 
-t <- ggtree(tree, layout="rectangular", size=1, branch.length="none") + geom_text(aes(label=node)) + geom_tiplab(align=TRUE, hjust=-.15)
-t
+#ggtree(rooted_tree) + geom_text(aes(label=node), hjust=-0.3) + geom_tiplab(align=FALSE, size=2)
 
 rooted_tree <- root(tree, outgroup="Siph_manettiflorus_A200_Herber", resolve.root = TRUE, edgelabel = TRUE)
 rooted_tree$edge.length[which(is.na(rooted_tree$edge.length))] <- 0
 
 rooted_tree$tip.label[ !(rooted_tree$tip.label %in% data2$Label) ] #check for species not in metadata
 
-#pdf("SCG_SpeciesTree_supercontigs_astral3.pdf", width=15, height=15)
+pdf("SCG_SpeciesTree_supercontigs_astral3.pdf", width=9, height=6.5)
 t <- ggtree(rooted_tree, layout="rectangular", size=1) + 
-  geom_treescale(x=0, y=78) + xlim(0, 3.4) + 
-  annotate("point", x=0, y=75, shape=21, fill="darkgray", color="black", size=2) + 
-  annotate("text", x=0.05, y=75, label = "> 75% node support", hjust = "left", size=2.5) + 
-  geom_nodepoint(aes(subset = !is.na(as.numeric(label)) & as.numeric(label) > 0.75), size=2, shape=21, fill="darkgray", color="black")
+geom_treescale(x=0, y=70) + xlim(0, 3.5) + 
+annotate("point", x=0, y=68, shape=21, fill="darkgray", color="black", size=2) + 
+annotate("text", x=0.05, y=68, label = "> 75% node support", hjust = "left", size=2.5) + 
+geom_nodepoint(aes(subset = !is.na(as.numeric(label)) & as.numeric(label) > 0.75), size=2, shape=21, fill="darkgray", color="black")
 t2 <- t %<+% data2 + 
-  #geom_tippoint(aes(color=factor(Genus)), shape=19, size=1) + 
-  theme(legend.position = "none") + 
-  geom_tiplab(aes(label=NewLab), align=FALSE, hjust=-.02, parse=T, family="Helvetica", size=2.5) + 
-  aes(color=factor(Genus)) + 
-  scale_color_manual(values = col, name="Genus", na.value="black") +
-  geom_cladelab(node=97, label="Brevilimbatids", family="Helvetica", fontface="plain", offset=1.006) +
-  geom_cladelab(node=93, label="Burmeisterids", family="Helvetica", fontface="plain", offset=0.6) +
-  geom_cladelab(node=111, label="giganteus grade", family="Helvetica", fontface="plain", offset=1.28) +
-  geom_cladelab(node=114, label="Peruvianids", family="Helvetica", fontface="plain", offset=1.118) +
-  geom_cladelab(node=149, label="Eucentropogonids", family="Helvetica", fontface="plain", offset=0.89) +
-  geom_cladelab(node=157, label="andinus clade", family="Helvetica", fontface="plain", offset=0.855) +
-  geom_cladelab(node=131, label="Colombianids", family="Helvetica", fontface="plain", offset=0.725)
+#geom_tippoint(aes(color=factor(Genus)), shape=19, size=3) + 
+theme(legend.position = "none") + 
+geom_tiplab(aes(label=NewLab), align=FALSE, hjust=-.02, parse=T, family="Helvetica", size=2.5) + 
+aes(color=factor(Genus)) + 
+scale_color_manual(values = col, name="Genus", na.value="black") + 
+geom_cladelab(node=85, label="Brevilimbatids", family="Helvetica", fontface="plain", offset=0.935) + 
+geom_cladelab(node=89, label="Burmeisterids", family="Helvetica", fontface="plain", offset=0.7) + 
+geom_cladelab(node=102, label="giganteus grade", family="Helvetica", fontface="plain", offset=1.128) + 
+geom_cladelab(node=138, label="Peruvianids", family="Helvetica", fontface="plain", offset=0.962) + 
+geom_cladelab(node=123, label="Eucentropogonids", family="Helvetica", fontface="plain", offset=0.766) + 
+geom_cladelab(node=116, label="andinus clade", family="Helvetica", fontface="plain", offset=0.725) + 
+geom_cladelab(node=110, label="Colombianids", family="Helvetica", fontface="plain", offset=0.815)
 t2
-#dev.off()
+dev.off()
 
 ggsave(plot = t2, filename = "SCG_SpeciesTree_supercontigs_astral3.png", width = 9, height = 6.5, units = "in", limitsize = FALSE)
