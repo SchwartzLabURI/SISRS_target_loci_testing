@@ -13,26 +13,25 @@ library(ggplot2)
 library(dplyr)
 library(glue)
 
-data <- read.table("tree_metadata2.txt", header=T)
-data2 <- data %>% mutate(NewLab = ifelse(Species== "sp.", glue("italic({Genus})~{Species}~{Sample}~{Info}"), ifelse(Info=="n.a.", glue("italic({Genus}~{Species})~{Sample}"), glue("italic({Genus}~{Species})~{Sample}~{Info}"))))
+data <- read.table("tree_metadata3.txt", header=T)
+data2 <- data %>% mutate(NewLab = ifelse(Species== "sp.", glue("italic({Genus})~{Species}~{Sample}~{Info}"), ifelse(Info=="n.a.", glue("italic({Genus}~{Species})~{Sample}"), ifelse(Remark!="n.a.", glue("italic({Genus})~{Remark}~italic({Species})~{Sample}"), glue("italic({Genus}~{Species})~{Sample}~{Info}")))))
 
 #col <- c("Burmeistera" = "lightseagreen", "Centropogon" = "plum3", "Lysipomia" = "darkgoldenrod1", "Siphocampylus" = "royalblue3")
 col <- c("B." = "lightseagreen", "C." = "plum3", "L." = "darkgoldenrod1", "S." = "royalblue3")
 
 tree <- read.tree("SISRS_marker_Camp.tre") #/project/pi_rsschwartz_uri_edu/andromeda_transfer/rachel/Campanulaceae_markers/hybpiper_SISRSmarkers/SISRS_marker_Camp.tre
-plot(tree)
-nodelabels(frame = "none") #determine root node
 
-rooted_tree <- root(tree, node=100, resolve.root = TRUE, edgelabel = TRUE)
+rooted_tree <- root(tree, outgroup="Siph_manettiflorus_A200_Herber", resolve.root = TRUE, edgelabel = TRUE)
 rooted_tree$edge.length[which(is.na(rooted_tree$edge.length))] <- 0
 
 rooted_tree$tip.label[ !(rooted_tree$tip.label %in% data2$Label) ] #check for species not in metadata
 
-t <- ggtree(rooted_tree, layout="rectangular", size=1) + #geom_treescale(x=0, y=78) + 
-  #xlim(0, 11) + #how much space on left and right
-  hexpand(.3) + #condense horizontally
-  annotate("point", x=0, y=75, shape=21, fill="darkgray", color="black", size=2) + 
-  annotate("text", x=0.1, y=75, label = "> 75% node support", hjust = "left", size=2.5) + 
+pdf("SISRS_marker_Camp_wastral.pdf", width = 9, height = 6.5)
+t <- ggtree(rooted_tree, layout="rectangular", size=1) + 
+  geom_treescale(x=0, y=70) + xlim(0, 8) + #how much space on left and right
+  #hexpand(.3) + #condense horizontally
+  annotate("point", x=0, y=68, shape=21, fill="darkgray", color="black", size=2) + 
+  annotate("text", x=0.1, y=68, label = "> 75% node support", hjust = "left", size=2.5) + 
   geom_nodepoint(aes(subset = !is.na(as.numeric(label)) & as.numeric(label) > 0.75), size=2, shape=21, fill="darkgray", color="black")
 
 t2 <- t %<+% data2 + 
@@ -48,6 +47,7 @@ t2 <- t %<+% data2 +
   geom_cladelab(node=80, label="Eucentropogonids", family="Helvetica", fontface="plain", offset=3.54) +
   geom_cladelab(node=94, label="andinus clade", family="Helvetica", fontface="plain", offset=3.27) +
   geom_cladelab(node=103, label="Colombianids", family="Helvetica", fontface="plain", offset=4.05)
-
+t2
+dev.off()
 
 ggsave(plot = t2, filename = "SISRS_marker_Camp_wastral.png", width = 9, height = 6.5, units = "in", limitsize = FALSE)
