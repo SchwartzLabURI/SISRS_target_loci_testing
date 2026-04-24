@@ -1,82 +1,14 @@
-Label	Genus	Remark	Species	Sample	Info
-Centro_incanus_A1_Lago423	Centropogon	n.a.	incanus	A1	Lago423
-Centro_mandonis_A12_Lago193	Centropogon	n.a.	mandonis	A12	Lago193
-Siph_andinus_A16_Lago226	Siphocampylus	n.a.	andinus	A16	Lago226
-Siph_rusbyanus_A17_Lago460	Siphocampylus	n.a.	rusbyanus	A17	Lago460
-Centro_argutus_A177_Lago319	Centropogon	n.a.	argutus	A177	Lago319
-Centro_baezanus_A178_1650	Centropogon	n.a.	baezanus	A178	1650
-Centro_cornutus_A179_CBD219	Centropogon	n.a.	cornutus	A179	CBD219
-Centro_mandonis_A180_Lagosn	Centropogon	n.a.	mandonis	A180	Lagosn
-Centro_nervosus_A181_Lago412	Centropogon	n.a.	nervosus	A181	Lago412
-Centro_peruvianus_A182_Lago386	Centropogon	n.a.	peruvianus	A182	Lago386
-Centro_smithii_A184_Lago281	Centropogon	n.a.	smithii	A184	Lago281
-Centro_solanifolius_A185_Lago284	Centropogon	n.a.	solanifolius	A185	Lago284
-Centro_valerii_A186_Lago177	Centropogon	n.a.	valerioi	A186	Lago177
-Centro_vargasii_A187_Lago356	Centropogon	n.a.	vargasii	A187	Lago356
-Bur_cyclostigmata_A188_Lago309	Burmeistera	n.a.	cyclostigmata	A188	Lago309
-Bur_isabellinus_A190_Lago405	Centropogon	n.a.	isabellinus	A190	Lago405
-Bur_parviflora_A192_Lagosn	Burmeistera	n.a.	parviflora	A192	Lagosn
-Bur_succulenta_A193_CDB297	Burmeistera	n.a.	succulenta	A193	CDB297
-Bur_toroensis_A195_Lago302	Burmeistera	n.a.	toroensis	A195	Lago302
-Centro_weberbaueri_A197_Lago328	Centropogon	n.a.	weberbaueri	A197	Lago328
-Siph_tupaeformis_A199_Lago434	Siphocampylus	n.a.	tupaeformis	A199	Lago434
-Siph_manettiflorus_A200_Herber	Siphocampylus	n.a.	manettiaeflorus	A200	Herber
-Siph_correoides_A201_Lago413	Siphocampylus	n.a.	correoides	A201	Lago413
-Siph_angustiflorus_A202_Lago417	Siphocampylus	n.a.	angustiflorus	A202	Lago417
-Siph_krauseanus_A203_Lago418	Siphocampylus	n.a.	krauseanus	A203	Lago418
-Siph_veteranus_A204_Lago385	Siphocampylus	n.a.	veteranus	A204	Lago385
-Siph_smilax_A205_Lago248	Siphocampylus	n.a.	smilax	A205	Lago248
-Siph_rosmarinifolius_A206_Lago357	Siphocampylus	n.a.	rosmarinifolius	A206	Lago357
-Siph_matthaei_A207_Lago320	Siphocampylus	n.a.	matthaei	A207	Lago320
-Siph_clotho_A208_Lago367	Siphocampylus	n.a.	clotho	A208	Lago367
-Siph_corynoides_A209_Lago350	Siphocampylus	n.a.	corynoides	A209	Lago350
-Siph_boliviensis_A210_Lago378	Siphocampylus	n.a.	boliviensis	A210	Lago378
-Siph_tunarensis_A211_Lago232	Siphocampylus	n.a.	tunarensis	A211	Lago232
-Siph_secundus_A212_Lago313	Siphocampylus	n.a.	secundus	A212	Lago313
-Siph_rusbyanus_A213_Lago460	Siphocampylus	cf.	rusbyanus	A213	Lago460
-Siph_elfriedii_A214_Lago387	Siphocampylus	n.a.	elfriedii	A214	Lago387
-Siph_jelskii_A215_Lago321	Siphocampylus	n.a.	jelskii	A215	Lago321
-Lysipomia_vitreola_A217_Antonelli6B	Lysipomia	n.a.	vitreola	A217	Antonelli6B
-Centro_britto_A26_Lago427	Centropogon	n.a.	brittonianus	A26	Lago427
-Siph_benthamianus_A329_HM23097	Siphocampylus	n.a.	benthamianus	A329	HM23097
-Centro_sp_A332_Lago766	Centropogon	n.a.	ferrugineus	A332	Lago766
-Bur_sp_A335_Lago981	Burmeistera	n.a.	sp.	A335	Lago981
-Siph_bogotensis_A347_Lago659	Siphocampylus	n.a.	bogotensis	A347	Lago659
-Centro_ferrugineus_A348_Lago662	Centropogon	n.a.	ferrugineus	A348	Lago662
-Siph_sp_A350_CMT220	Siphocampylus	n.a.	longibracteolatus	A350	CMT220
-Bur_sp_A351_Lago1001	Burmeistera	n.a.	sp.	A351	Lago1001
-Siph_columnae_A357_JAS4781	Siphocampylus	n.a.	columnae	A357	JAS4781
-Centro_foetidus_A358_Lago989	Centropogon	n.a.	foetidus	A358	Lago989
-Centro_asclepiadeus_A359_JAS4801	Centropogon	n.a.	asclepiadeus	A359	JAS4801
-Lysipomia_sp_A362_Lago633	Lysipomia	n.a.	sp.	A362	Lago633
-Lysipomia_muscoides_A364_Lago781	Lysipomia	n.a.	muscoides	A364	Lago781
-Centro_bogotensis_A365_Lago784	Siphocampylus	n.a.	hispidus	A365	Lago784
-Centro_rex_A367_Lago806	Centropogon	n.a.	lehmannii	A367	Lago806
-Siph_purdieanus_A368_Lago820	Siphocampylus	n.a.	purdieanus	A368	Lago820
-Siph_lasiandrus_A370_Lago853	Siphocampylus	n.a.	lasiandrus	A370	Lago853
-Bur_sp_A374_Lago930	Burmeistera	n.a.	breviflora	A374	Lago930
-Bur_sp_A376_Lago936	Burmeistera	n.a.	sp.	A376	Lago936
-Centro_sp_A377_Lago939	Centropogon	n.a.	leucophyllus	A377	Lago939
-Centro_cornutus_A378_Lago961	Centropogon	n.a.	cornutus	A378	Lago961
-Centro_granulosus_A380_Lago942	Centropogon	n.a.	granulosus	A380	Lago942
-Lysipomia_laciniata_A401_Lago780	Lysipomia	n.a.	laciniata	A401	Lago780
-Centro_solanifolius_A403_Lago941	Centropogon	n.a.	solanifolius	A403	Lago941
-Centro_yarumalensis_A404_Lago944	Centropogon	n.a.	yarumalensis	A404	Lago944
-Bur_sp_A405_Lago980	Burmeistera	n.a.	succulenta	A405	Lago980
-Siph_sp_A406_Lago649	Siphocampylus	n.a.	longibracteolatus	A406	Lago649
-Centro_sp_A407_Lago867	Centropogon	n.a.	erianthus	A407	Lago867
-Centro_sp_A413_Lago974	Centropogon	n.a.	congestus	A413	Lago974
-Siph_sp_A414_Lago856	Siphocampylus	n.a.	retrorsus	A414	Lago856
-Siph_sp_A415_Lago882	Siphocampylus	n.a.	retrorsus	A415	Lago882
-Centro_sp_A425_Lago710	Centropogon	aff.	ellipticus	A425	Lago710
-Centro_sp_A426_Lago940	Centropogon	n.a.	minimus	A426	Lago940
-Centro_sp_A428_Lago874	Centropogon	n.a.	ferrugineus	A428	Lago874
-Bur_sp_A431_Lago943	Burmeistera	n.a.	sp.	A431	Lago943
-Centro_sp_A435_Lago746	Centropogon	aff.	ellipticus	A435	Lago746
-Centro_palmanus_A50_Lago193	Centropogon	n.a.	palmanus	A50	Lago193
-Bur_sp_AMB375_Lago991	Burmeistera	n.a.	sp.	AMB375	Lago991
-Siph_corynellus_ARC6_Weigand5815	Siphocampylus	n.a.	corynellus	ARC6	Weigand5815
-Siph_ecuadoriensis_ARC7_Clark1906	Siphocampylus	n.a.	ecuadoriensis	ARC7	Clark1906
-Centro_palmanus_LL193	Centropogon	n.a.	palmanus	LL193	n.a.
-Bur_vulgaris_LL32_Lago163	Burmeistera	n.a.	vulgaris	LL32	Lago163
-Centro_congestus_LL34_Lago95	Centropogon	n.a.	congestus	LL34	Lago95
+Label	Genus	Species	Sample	Info
+Bur_cyclostigmata_A188_Lago309	B.	cyclostigmata	A188	Lago309
+Bur_isabellinus_A190_Lago405	C.	isabellinus	A190	Lago405
+Bur_parviflora_A192_Lagosn	B.	parviflora	A192	Lagosn
+Bur_sp_A335_Lago981	B.	sp.	A335	Lago981
+Bur_sp_A351_Lago1001	B.	sp.	A351	Lago1001
+Bur_sp_A374_Lago930	B.	breviflora	A374	Lago930
+Bur_sp_A376_Lago936	B.	sp.	A376	Lago936
+Bur_sp_A405_Lago980	B.	succulenta	A405	Lago980
+Bur_sp_A431_Lago943	B.	sp.	A431	Lago943
+Bur_sp_AMB375_Lago991	B.	sp.	AMB375	Lago991
+Bur_succulenta_A193_CDB297	B.	succulenta	A193	CDB297
+Bur_toroensis_A195_Lago302	B.	toroensis	A195	Lago302
+Bur_vulgaris_LL32_Lago163	B.	vulgaris	LL32	Lago163
