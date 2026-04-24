@@ -40,7 +40,7 @@ t2 <- t %<+% data2 +
   geom_tiplab(aes(label=NewLab), align=FALSE, hjust=-.02, parse=T, family="Helvetica", size=2.5) + 
   aes(color=factor(Genus)) + scale_color_manual(values = col, name="Genus", na.value="black") +
   geom_cladelab(node=130, label="Brevilimbatids", family="Helvetica", fontface="plain", offset=3.8) +
-  geom_cladelab(node=115, label="Burmeisterids", family="Helvetica", fontface="plain", offset=1.4) +
+  geom_cladelab(node=117, label="Burmeisterids", family="Helvetica", fontface="plain", offset=1.4) +
   #Fix clade label in Adobe Illustrator
   geom_cladelab(node=58, label="giganteus grade", family="Helvetica", fontface="plain", offset=5.52) +
   geom_cladelab(node=109, label="Peruvianids", family="Helvetica", fontface="plain", offset=4.8) +
