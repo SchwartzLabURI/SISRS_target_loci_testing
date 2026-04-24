@@ -34,8 +34,8 @@ theme(legend.position = "none") +
 geom_tiplab(aes(label=NewLab), align=FALSE, hjust=-.02, parse=T, family="Helvetica", size=2.5) + 
 aes(color=factor(Genus)) + 
 scale_color_manual(values = col, name="Genus", na.value="black") + 
-geom_cladelab(node=85, label="Brevilimbatids", family="Helvetica", fontface="plain", offset=0.935) + 
-geom_cladelab(node=89, label="Burmeisterids", family="Helvetica", fontface="plain", offset=0.7) + 
+geom_cladelab(node=76, label="Brevilimbatids", family="Helvetica", fontface="plain", offset=0.935) + 
+geom_cladelab(node=87, label="Burmeisterids", family="Helvetica", fontface="plain", offset=0.7) + 
 geom_cladelab(node=102, label="giganteus grade", family="Helvetica", fontface="plain", offset=1.128) + 
 geom_cladelab(node=138, label="Peruvianids", family="Helvetica", fontface="plain", offset=0.962) + 
 geom_cladelab(node=123, label="Eucentropogonids", family="Helvetica", fontface="plain", offset=0.766) + 
