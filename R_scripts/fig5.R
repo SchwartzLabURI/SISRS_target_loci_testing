@@ -7,7 +7,7 @@ library(glue)
 
 #setwd("/Users/corinna/Documents/Work/Schwartz_Lab/Plant_paralog_evolution/Campanulaceae/TargetCapture/353")
 
-data <- read.table("tree_metadata4.txt", header=T)
+data <- read.table("tree_metadata2.txt", header=T)
 data2 <- data %>% mutate(NewLab = ifelse(Info=="new" & Remark=="n.a." & Species!="sp.", glue("bolditalic({Genus}~{Species})~bold({Sample})"), ifelse(Info=="new" & Remark!="n.a." & Species!="nov.", glue("bolditalic({Genus})~bold({Remark})~bolditalic({Species})~bold({Sample})"), ifelse(Info=="new" & Species=="nov.", glue("bolditalic({Genus})~bold({Remark}~{Species}~{Sample})"), ifelse(Info=="new" & Species=="sp.", glue("bolditalic({Genus})~bold({Species}~{Sample})"), ifelse(Info=="n.a.", glue("italic({Genus}~{Species})~{Sample}"), ifelse(Remark!="n.a." & Info!="new", glue("italic({Genus})~{Remark}~italic({Species})~{Sample}~{Info}"), ifelse(Species=="sp." & Info!="new", glue("italic({Genus})~{Species}~{Sample}~{Info}"), glue("italic({Genus}~{Species})~{Sample}~{Info}")))))))))
 
 col <- c("B." = "lightseagreen", "C." = "plum3", "L." = "darkgoldenrod1", "S." = "royalblue3")
