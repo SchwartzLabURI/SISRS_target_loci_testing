@@ -12,6 +12,7 @@ data2 <- data %>% mutate(NewLab = ifelse(Info=="new" & Remark=="n.a." & Species!
 
 col <- c("B." = "lightseagreen", "C." = "plum3", "L." = "darkgoldenrod1", "S." = "royalblue3")
 
+# Tree with all loci, only plotted for comparison
 tree <- read.tree("SISRS_SpeciesTree_astral3.tre")
 rooted_tree <- root(tree, outgroup="Siph_manettiflorus_A200_Herber", resolve.root = TRUE, edgelabel = TRUE)
 rooted_tree$edge.length[which(is.na(rooted_tree$edge.length))] <- 0
@@ -39,6 +40,7 @@ geom_cladelab(node=128, label="Colombianids", family="Helvetica", fontface="plai
 t2
 dev.off()
 
+# Tree used in figure
 tree <- read.tree("SISRS_SCG_SpeciesTree_astral3.tre")
 rooted_tree <- root(tree, outgroup="Siph_manettiflorus_A200_Herber", resolve.root = TRUE, edgelabel = TRUE)
 rooted_tree$edge.length[which(is.na(rooted_tree$edge.length))] <- 0
