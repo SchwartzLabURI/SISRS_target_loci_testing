@@ -13,7 +13,7 @@ library(ggplot2)
 library(dplyr)
 library(glue)
 
-data <- read.table("tree_metadata3.txt", header=T)
+data <- read.table("tree_metadata.txt", header=T)
 data2 <- data %>% mutate(NewLab = ifelse(Species== "sp.", glue("italic({Genus})~{Species}~{Sample}~{Info}"), ifelse(Info=="n.a.", glue("italic({Genus}~{Species})~{Sample}"), ifelse(Remark!="n.a.", glue("italic({Genus})~{Remark}~italic({Species})~{Sample}"), glue("italic({Genus}~{Species})~{Sample}~{Info}")))))
 
 #col <- c("Burmeistera" = "lightseagreen", "Centropogon" = "plum3", "Lysipomia" = "darkgoldenrod1", "Siphocampylus" = "royalblue3")
