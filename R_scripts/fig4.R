@@ -18,7 +18,7 @@ rooted_tree$edge.length[which(is.na(rooted_tree$edge.length))] <- 0
 
 ggtree(rooted_tree) + geom_text(aes(label=node), hjust=-0.3, size=2) + geom_tiplab(align=FALSE, size=2)
 
-pdf("SISRS_SpeciesTree_astral3.pdf", width=9, height=11)
+pdf("SISRS_SpeciesTree_TargetCapture_astral3.pdf", width=9, height=11)
 t <- ggtree(rooted_tree, layout="rectangular", size=1) + 
 geom_treescale(x=0, y=120) + xlim(0, 12) + 
 annotate("point", x=0, y=117, shape=21, fill="darkgray", color="black", size=2) + 
