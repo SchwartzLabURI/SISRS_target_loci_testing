@@ -7,13 +7,15 @@
 #SBATCH --mem=50g
 #SBATCH -o Astral.out
 #SBATCH -e Astral.err
+#SBATCH --account=pi_rsschwartz_uri_edu
 
-# Full dataset (run separately for Burmeistera only dataset)
+# Commands for full analysis, run separately for Burmeistera only samples
 for gene in `cat SCG.list`
 do 
-cat trees_supercontigs/${gene}.tre >> SCG_trees_supercontigs.tre
-cat trees_dna/${gene}.tre >> SCG_trees.tre
+cat trees/${gene}.tre >> SCG_trees.tre
 done
 
-java -jar /home/cbreusing_uri_edu/software/Astral/astral.5.7.8.jar -i SCG_trees_supercontigs.tre -o SCG_SpeciesTree_supercontigs_astral3.tre
-java -jar /home/cbreusing_uri_edu/software/Astral/astral.5.7.8.jar -i SCG_trees.tre -o SCG_SpeciesTree_dna_astral3.tre
+cat trees/*.tre > gene_trees.tre
+
+java -jar /home/cbreusing_uri_edu/software/Astral/astral.5.7.8.jar -i SCG_trees.tre -o 353_SCG_SpeciesTree_supercontigs_TargetCapture_astral3.tre
+java -jar /home/cbreusing_uri_edu/software/Astral/astral.5.7.8.jar -i gene_trees.tre -o 353_SpeciesTree_supercontigs_TargetCapture_astral3.tre
